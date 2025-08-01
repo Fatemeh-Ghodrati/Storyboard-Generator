@@ -1,5 +1,4 @@
 import nltk
-from io import BytesIO
 from PIL import Image
 import requests
 
@@ -25,7 +24,7 @@ def ollama_generate(prompt: str, model: str = "gemma3:1b") -> str:
         return f"Error: {str(e)}"
 
 def summarize_text(text: str, min_length: int = 50) -> str:
-    prompt = f"Summarize the following scene in at least {min_length} words without asking for more input:\n\n{text}\n\nSummary:"
+    prompt = f"Summarize the following scene in at least {min_length} words:\n\n{text}\n\nSummary:"
     return ollama_generate(prompt)
 
 def analyze_sentiment(text: str) -> dict:
@@ -69,28 +68,28 @@ def extract_visual_keywords_with_gemma(scene_text: str, top_n: int = 5) -> list:
     keywords = [kw.strip() for kw in result.split(",") if kw.strip()]
     return keywords[:top_n]
 
-def extract_visual_scenes(text: str) -> list:
-    sentences = nltk.sent_tokenize(text)
-    visual_scenes = []
+def group_visual_units(text: str) -> list:
+    prompt = f"""
+You are a helpful assistant that splits a script or story into distinct visual units.
 
-    for sentence in sentences:
-        sentiment = analyze_sentiment(sentence)
-        sentiment_score = sentiment["score"] if sentiment["label"] != "UNKNOWN" else 0.0
+Each visual unit should describe one moment that can be illustrated as a single storyboard frame.
 
-        keywords = extract_visual_keywords_with_gemma(sentence)
+Only return a numbered list of the visual moments, without explanation.
 
-        visual_keywords = ['scene', 'landscape', 'battle', 'sunset', 'fight', 'emotion', 'action', 'dark', 'light', 'city', 'forest']
-        is_visual = any(k.lower() in visual_keywords for k in keywords)
+Text:
+\"\"\"{text}\"\"\"
 
-        if sentiment_score > 0.7 or is_visual:
-            visual_scenes.append({
-                'text': sentence,
-                'keywords': keywords,
-                'sentiment': sentiment['label'],
-                'score': sentiment_score
-            })
+Visual Units:
+"""
+    response = ollama_generate(prompt)
 
-    return visual_scenes
+    units = []
+    for line in response.split("\n"):
+        if line.strip().startswith(tuple(str(i) + '.' for i in range(1, 100))):
+            parts = line.split('.', 1)
+            if len(parts) == 2:
+                units.append(parts[1].strip())
+    return units
 
 def generate_image_from_prompt(prompt: str) -> bytes:
     try:
