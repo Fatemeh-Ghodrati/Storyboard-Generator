@@ -7,7 +7,9 @@ from .utils import (
     generate_image_from_prompt,
     analyze_sentiment
 )
-import base64
+
+from history.models import StoryboardHistory
+
 
 def index(request):
     results = []
@@ -26,6 +28,14 @@ def index(request):
                 image_url = generate_image_from_prompt(prompt)
 
                 results.append((unit, image_url, keywords, sentiment['label'], sentiment['score']))
+
+            if results:
+                title = results[0][0][:50]
+                StoryboardHistory.objects.create(
+                    title=title,
+                    input_text=script,
+                    results={"scenes": results}
+                )
     else:
         form = ScriptInputForm()
 
@@ -33,4 +43,3 @@ def index(request):
         'form': form,
         'results': results
     })
-

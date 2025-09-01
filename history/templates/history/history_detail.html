@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}جزئیات تاریخچه{% endblock %}
+
+{% block content %}
+  <div class="card mt-4 p-4">
+    <h4>{{ history.title }}</h4>
+    <p><strong>متن ورودی:</strong></p>
+    <p>{{ history.input_text }}</p>
+
+    <hr>
+    <h5>نتایج</h5>
+    {% for text, image_url, keywords, sentiment, score in history.results.scenes %}
+      <div class="mb-4">
+        <p><strong>صحنه:</strong> {{ text }}</p>
+        <p><strong>کلمات کلیدی:</strong> {{ keywords|join:", " }}</p>
+        <p><strong>احساسات:</strong> {{ sentiment }} ({{ score }})</p>
+        {% if image_url %}
+          <img src="{{ image_url }}" class="img-fluid rounded" alt="Storyboard Image">
+        {% else %}
+          <p class="text-danger">⚠️ تصویر موجود نیست</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

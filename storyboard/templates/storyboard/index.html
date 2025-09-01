@@ -1,87 +1,37 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>استوری‌بورد ساز 🎬</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-  <style>
-    body {
-      background: #f4f6f9;
-      font-family: "Vazir", sans-serif;
-    }
-    .navbar {
-      background: linear-gradient(90deg, #4e73df, #224abe);
-    }
-    .navbar-brand {
-      color: white !important;
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-    .card img {
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-    .card {
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease-in-out;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .btn-custom {
-      background: #4e73df;
-      color: white;
-      border-radius: 8px;
-      padding: 10px 20px;
-    }
-    .btn-custom:hover {
-      background: #2e59d9;
-    }
-  </style>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="#">🎬 استوری‌بورد ساز</a>
-    </div>
-  </nav>
+{% extends "base.html" %}
 
-  <div class="container mt-5">
-    <div class="card p-4 mb-4">
-      <h5 class="mb-3">متن داستان خود را وارد کنید</h5>
-      <form method="post">
-        {% csrf_token %}
-        <div class="mb-3">
-          {{ form.as_p }}
-        </div>
-        <button type="submit" class="btn btn-custom">تولید استوری‌بورد</button>
-      </form>
-    </div>
+{% block title %}استوری‌بورد ساز 🎬{% endblock %}
 
-    {% if results %}
-      <h2 class="mb-4">📌 نتایج</h2>
-      <div class="row g-4">
-        {% for text, image_url, keywords, sentiment, score in results %}
-          <div class="col-md-6">
-            <div class="card p-3 h-100">
-              <h5 class="text-primary">صحنه:</h5>
-              <p>{{ text }}</p>
-              <p><strong>کلمات کلیدی:</strong> {{ keywords|join:", " }}</p>
-              <p><strong>احساسات:</strong> {{ sentiment }} (امتیاز: {{ score }})</p>
-              {% if image_url %}
-                <img src="{{ image_url }}" class="img-fluid mt-2" alt="Storyboard Image">
-              {% else %}
-                <p class="text-danger">⚠️ خطا در تولید تصویر</p>
-              {% endif %}
-            </div>
-          </div>
-        {% endfor %}
+{% block content %}
+  <div class="card p-4 mb-4">
+    <h5 class="mb-3">متن داستان خود را وارد کنید</h5>
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        {{ form.as_p }}
       </div>
-    {% endif %}
+      <button type="submit" class="btn btn-custom">تولید استوری‌بورد</button>
+    </form>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+  {% if results %}
+    <h2 class="mb-4">📌 نتایج</h2>
+    <div class="row g-4">
+      {% for text, image_url, keywords, sentiment, score in results %}
+        <div class="col-md-6">
+          <div class="card p-3 h-100">
+            <h5 class="text-primary">صحنه:</h5>
+            <p>{{ text }}</p>
+            <p><strong>کلمات کلیدی:</strong> {{ keywords|join:", " }}</p>
+            <p><strong>احساسات:</strong> {{ sentiment }} (امتیاز: {{ score }})</p>
+            {% if image_url %}
+              <img src="{{ image_url }}" class="img-fluid mt-2" alt="Storyboard Image">
+            {% else %}
+              <p class="text-danger">⚠️ خطا در تولید تصویر</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endblock %}
