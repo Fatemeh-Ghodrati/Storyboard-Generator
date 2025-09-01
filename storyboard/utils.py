@@ -104,15 +104,32 @@ Visual Units:
 def generate_image_from_prompt(prompt: str) -> str:
     try:
         payload = {"inputs": prompt}
-        response = requests.post(GENERATE_IMAGE_API, headers=HEADERS, json=payload, stream=True)
+        response = requests.post(GENERATE_IMAGE_API, headers=HEADERS, json=payload)
         response.raise_for_status()
 
-        content_type = response.headers.get('content-type', '')
-        if 'image' in content_type or 'octet-stream' in content_type:
-            image_base64 = base64.b64encode(response.content).decode('utf-8')
+        content_type = response.headers.get('content-type', '').lower()
+
+        if 'application/json' in content_type:
+            data = response.json()
+            if isinstance(data, dict) and 'generated_image' in data:
+                image_base64 = data['generated_image']
+            elif isinstance(data, list) and 'generated_image' in data[0]:
+                image_base64 = data[0]['generated_image']
+            else:
+                logger.warning(f"JSON received but no image found: {data}")
+                return None
+            logger.debug("Image received from JSON response")
             return f"data:image/png;base64,{image_base64}"
+
+        elif 'image' in content_type or 'octet-stream' in content_type:
+            image_base64 = base64.b64encode(response.content).decode('utf-8')
+            logger.debug("Image received as raw content")
+            return f"data:image/png;base64,{image_base64}"
+
         else:
+            logger.warning(f"Unexpected content type: {content_type}")
             return None
 
     except Exception as e:
+        logger.error(f"Error in image generation: {e}")
         return None

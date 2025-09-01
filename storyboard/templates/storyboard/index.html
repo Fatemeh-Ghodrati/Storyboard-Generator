@@ -2,108 +2,86 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>استوری‌بورد ساز</title>
+  <title>استوری‌بورد ساز 🎬</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
   <style>
     body {
+      background: #f4f6f9;
       font-family: "Vazir", sans-serif;
-      background: #f8f9fa;
-      color: #333;
-      margin: 0;
-      padding: 0;
     }
-    header {
-      background: #4e73df;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    .navbar {
+      background: linear-gradient(90deg, #4e73df, #224abe);
     }
-    main {
-      width: 90%;
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 25px;
+    .navbar-brand {
+      color: white !important;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .card img {
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
-    form {
-      margin-bottom: 30px;
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease-in-out;
     }
-    textarea {
-      width: 100%;
-      min-height: 120px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-      resize: vertical;
+    .card:hover {
+      transform: translateY(-5px);
     }
-    button {
+    .btn-custom {
       background: #4e73df;
       color: white;
-      border: none;
+      border-radius: 8px;
       padding: 10px 20px;
-      font-size: 15px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
     }
-    button:hover {
+    .btn-custom:hover {
       background: #2e59d9;
-    }
-    h2 {
-      margin-top: 40px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-    }
-    .scene {
-      margin-bottom: 25px;
-      padding-bottom: 20px;
-      border-bottom: 1px dashed #ddd;
-    }
-    .scene h3 {
-      margin: 10px 0;
-      color: #4e73df;
-    }
-    .scene p {
-      margin: 6px 0;
-    }
-    .scene img {
-      max-width: 100%;
-      border-radius: 6px;
-      margin-top: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🎬 استوری‌بورد ساز</h1>
-  </header>
-  <main>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">تولید استوری‌بورد</button>
-    </form>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">🎬 استوری‌بورد ساز</a>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="card p-4 mb-4">
+      <h5 class="mb-3">متن داستان خود را وارد کنید</h5>
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-custom">تولید استوری‌بورد</button>
+      </form>
+    </div>
 
     {% if results %}
-      <h2>نتایج</h2>
-      {% for text, image_url, keywords, sentiment, score in results %}
-        <div class="scene">
-          <h3>صحنه:</h3>
-          <p>{{ text }}</p>
-          <p><strong>کلمات کلیدی:</strong> {{ keywords|join:", " }}</p>
-          <p><strong>احساسات:</strong> {{ sentiment }} (امتیاز: {{ score }})</p>
-          {% if image_url %}
-            <img src="{{ image_url }}" alt="Storyboard Image">
-          {% else %}
-            <p style="color:red;">⚠️ خطا در تولید تصویر</p>
-          {% endif %}
-        </div>
-      {% endfor %}
+      <h2 class="mb-4">📌 نتایج</h2>
+      <div class="row g-4">
+        {% for text, image_url, keywords, sentiment, score in results %}
+          <div class="col-md-6">
+            <div class="card p-3 h-100">
+              <h5 class="text-primary">صحنه:</h5>
+              <p>{{ text }}</p>
+              <p><strong>کلمات کلیدی:</strong> {{ keywords|join:", " }}</p>
+              <p><strong>احساسات:</strong> {{ sentiment }} (امتیاز: {{ score }})</p>
+              {% if image_url %}
+                <img src="{{ image_url }}" class="img-fluid mt-2" alt="Storyboard Image">
+              {% else %}
+                <p class="text-danger">⚠️ خطا در تولید تصویر</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     {% endif %}
-  </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
