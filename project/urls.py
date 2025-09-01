@@ -20,6 +20,6 @@ from storyboard.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='index'),
+    path("", include("storyboard.urls")),
     path("history/", include("history.urls")),
 ]
