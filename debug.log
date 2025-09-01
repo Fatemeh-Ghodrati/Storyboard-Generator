@@ -79,3 +79,17 @@ analyze result received: neutral
 D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2241
+summarize result received: In the scene, a girl runs through a garden, surrounded by colorful flowers, butterflies, sunshine, and birds chirping. She laughs and enjoys herself, later looking out of her window in quiet contemplation.
+summarize result received: ['Girl running through a garden with vibrant surroundings.', 'Birds chirping while the girl runs.', 'Girl laughing and enjoying her surroundings.', 'Birds chirping again while she runs.', 'Girl looking out of her window in contemplation.']
+extract visual kw result received: ['1. Girl\n2. Garden\n3. Vibrant surroundings']
+analyze result received: positive
+extract visual kw result received: ['* Girl running\n* Birds flying overhead\n* Green grass and trees in the background\n* Sunlight filtering through the branches\n* Blue sky visible in the distance']
+analyze result received: positive
+extract visual kw result received: ["Girl's expression (laughing)", 'Surroundings (context)']
+analyze result received: positive
+extract visual kw result received: ['- birds\n- chirping\n- running']
+analyze result received: positive
+extract visual kw result received: ['girl', 'window', 'contemplation']
+analyze result received: neutral
+"POST / HTTP/1.1" 200 734983
