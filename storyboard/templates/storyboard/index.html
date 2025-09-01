@@ -3,8 +3,21 @@
 <head>
     <title>استوری‌بورد ساز</title>
     <style>
-        .scene { margin-bottom: 20px; }
-        img { max-width: 500px; }
+        body {
+            font-family: sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+        .scene {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 15px;
+        }
+        img {
+            max-width: 500px;
+            display: block;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -17,15 +30,16 @@
 
     {% if results %}
         <h2>نتایج</h2>
-        {% for text, image, keywords, sentiment, score in results %}
+        {% for text, image_url, keywords, sentiment, score in results %}
             <div class="scene">
                 <h3>صحنه: {{ text }}</h3>
                 <p>کلمات کلیدی: {{ keywords|join:", " }}</p>
                 <p>احساسات: {{ sentiment }} (امتیاز: {{ score }})</p>
-                {% if image|length > 100 %}
-                    <img src="data:image/png;base64,{{ image }}" alt="Storyboard Image">
+
+                {% if image_url %}
+                    <img src="{{ image_url }}" alt="Storyboard Image">
                 {% else %}
-                    <p>{{ image }}</p>
+                    <p>خطا در تولید تصویر</p>
                 {% endif %}
             </div>
         {% endfor %}

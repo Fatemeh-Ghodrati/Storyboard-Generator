@@ -1,0 +1,80 @@
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1061
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2366
+summarize result received: A cheerful blonde-haired girl frolics exuberantly through a radiant flower garden teeming with butterflies and the melodious symphony of birds. The warmth of the sun illuminates her face, accentuating her laughter and joyful spirit.
+summarize result received: ['Close-up of cheerful blonde-haired girl', 'Girl frolics through radiant flower garden filled with butterflies', 'Birds sing melodiously in the background', "Sunlight illuminates girl's face, accentuating her laughter and joyful spirit"]
+extract visual kw result received: ['Close-up shot', 'cheerful expression', 'blonde hair', "girl's face"]
+analyze result received: positive
+extract visual kw result received: ['Garden (radiant flowers)', 'Girl', 'Butterflies', "Girl's Movement (frolics)", 'Light (Radiant)']
+analyze result received: positive
+extract visual kw result received: ['Characters: None (Only environmental elements are mentioned)\nPhysical Settings: Birds', 'Melodious singing (implies presence of birds)', "Background\nLighting: Natural light (implied by the fact that it's daytime and birds are singing)\nCharacters' Appearance: Not specified\nActions: Birds singing"]
+analyze result received: positive
+extract visual kw result received: ['Face of the girl', 'sunlight', 'laughter (expression)', 'joyful spirit (emotion depicted in expression)', 'light source (sun)']
+analyze result received: positive
+"POST / HTTP/1.1" 200 3328
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1061
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2366
+summarize result received: Error: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate
+summarize result received: []
+"POST / HTTP/1.1" 200 1319
+D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
+Watching for file changes with StatReloader
+summarize result received: Error: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate
+summarize result received: []
+"POST / HTTP/1.1" 200 1319
+"GET / HTTP/1.1" 200 1061
+summarize result received: Error: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate
+summarize result received: []
+"POST / HTTP/1.1" 200 1319
+D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1061
+summarize result received: Error: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+summarize result received: []
+"POST / HTTP/1.1" 200 1319
+D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
+Watching for file changes with StatReloader
+summarize result received: Error: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate
+summarize result received: []
+"POST / HTTP/1.1" 200 1319
+Watching for file changes with StatReloader
+summarize result received: A girl runs through a garden with blonde hair, surrounded by colorful flowers, butterflies, sunshine, and birds chirping. She laughs and enjoys herself before entering her house and looking out the window in a calm manner.
+summarize result received: ['Girl running through garden', 'Blonde hair, surrounded by colorful flowers, butterflies, sunshine, and birds chirping', 'Laughing and enjoying herself', 'Entering her house', 'Looking out window in calm manner']
+extract visual kw result received: ['girl', 'running', 'garden']
+analyze result received: neutral
+extract visual kw result received: ['Blonde hair', 'colorful flowers', 'butterflies', 'sunshine', 'birds chirping']
+analyze result received: positive
+extract visual kw result received: ['Smiling face', 'happy eyes', 'relaxed body posture', 'outdoor setting with bright sunlight', 'children playing in the background.']
+analyze result received: positive
+extract visual kw result received: ["1. Exterior of the house\n2. Interior of the house\n3. Character's appearance (clothing", 'hairstyle', 'etc.)\n4. Emotions of the character (e.g.', 'excited', 'nervous']
+analyze result received: neutral
+extract visual kw result received: ['There are no visual elements mentioned in the given scene description. Please provide more details or a different scene description for me to extract the key visual elements.']
+analyze result received: neutral
+"POST / HTTP/1.1" 200 3836
+Not Found: /storyboard/storyboard_6296534182462972189.png
+"GET /storyboard/storyboard_6296534182462972189.png HTTP/1.1" 404 2468
+Not Found: /storyboard/storyboard_2433634877306827675.png
+"GET /storyboard/storyboard_2433634877306827675.png HTTP/1.1" 404 2468
+Not Found: /storyboard/storyboard_4928426677560779488.png
+"GET /storyboard/storyboard_4928426677560779488.png HTTP/1.1" 404 2468
+Not Found: /storyboard/storyboard_5694748130794978137.png
+"GET /storyboard/storyboard_5694748130794978137.png HTTP/1.1" 404 2468
+Not Found: /storyboard/storyboard_2471213783193739153.png
+"GET /storyboard/storyboard_2471213783193739153.png HTTP/1.1" 404 2468
+D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+summarize result received: A girl runs through a garden filled with colorful flowers and butterflies, laughing as the sun shines on her face and birds chirp in the trees. She then enters her house and looks out the window.
+summarize result received: ['A girl runs through a garden filled with colorful flowers and butterflies, laughing as the sun shines on her face and birds chirp in the trees.', 'The girl enters her house.', 'The girl looks out the window.']
+extract visual kw result received: ['1. Garden\n2. Colorful flowers\n3. Butterflies\n4. Sunlight\n5. Girl\n6. Laughter\n7. Birds chirping\n8. Trees']
+analyze result received: positive
+extract visual kw result received: ["The girl's appearance", 'the door of the house', 'the interior of the house', 'the lighting inside the house.']
+analyze result received: neutral
+extract visual kw result received: ['1. Girl\n2. Window\n3. Scenery outside']
+analyze result received: neutral
+"POST / HTTP/1.1" 200 454905
+D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
+Watching for file changes with StatReloader

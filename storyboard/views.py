@@ -23,13 +23,9 @@ def index(request):
                 keywords = extract_visual_keywords_with_gemma(unit)
                 sentiment = analyze_sentiment(unit)
                 prompt = f"cinematic storyboard scene: {unit} with keywords {', '.join(keywords)}"
-                image_bytes = generate_image_from_prompt(prompt)
+                image_url = generate_image_from_prompt(prompt)
 
-                if isinstance(image_bytes, bytes) and len(image_bytes) > 100:
-                    image_base64 = base64.b64encode(image_bytes).decode('utf-8')
-                    results.append((unit, image_base64, keywords, sentiment['label'], sentiment['score']))
-                else:
-                    results.append((unit, f"Error: {image_bytes.decode()}", keywords, sentiment['label'], sentiment['score']))
+                results.append((unit, image_url, keywords, sentiment['label'], sentiment['score']))
     else:
         form = ScriptInputForm()
 
@@ -37,3 +33,4 @@ def index(request):
         'form': form,
         'results': results
     })
+

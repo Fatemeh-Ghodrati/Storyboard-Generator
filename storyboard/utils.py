@@ -1,8 +1,11 @@
 import nltk
-from PIL import Image
+import base64
 import requests
+import logging
 
 nltk.download('punkt')
+
+logger = logging.getLogger('storyboard')
 
 HEADERS = {
     "Authorization": "Bearer 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"
@@ -10,7 +13,9 @@ HEADERS = {
 GENERATE_IMAGE_API = "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 
-def ollama_generate(prompt: str, model: str = "gemma3:1b") -> str:
+DEFAULT_MODEL = "mistral:7b-instruct-q4_0" 
+
+def ollama_generate(prompt: str, model: str = DEFAULT_MODEL) -> str:
     try:
         response = requests.post(OLLAMA_URL, json={
             "model": model,
@@ -23,11 +28,13 @@ def ollama_generate(prompt: str, model: str = "gemma3:1b") -> str:
     except Exception as e:
         return f"Error: {str(e)}"
 
-def summarize_text(text: str, min_length: int = 50) -> str:
+def summarize_text(text: str, min_length: int = 50, model: str = DEFAULT_MODEL) -> str:
     prompt = f"Summarize the following scene in at least {min_length} words:\n\n{text}\n\nSummary:"
-    return ollama_generate(prompt)
+    result = ollama_generate(prompt, model)
+    logger.debug(f"summarize result received: {result}")
+    return result
 
-def analyze_sentiment(text: str) -> dict:
+def analyze_sentiment(text: str, model: str = DEFAULT_MODEL) -> dict:
     prompt = f"""
 Classify the sentiment of the following sentence as Positive, Negative, or Neutral.
 Only return the label name.
@@ -37,7 +44,8 @@ Sentence:
 
 Sentiment:
 """
-    result = ollama_generate(prompt).lower()
+    result = ollama_generate(prompt, model).lower()
+    logger.debug(f"analyze result received: {result}")
     if "positive" in result:
         return {"label": "POSITIVE", "score": 0.9}
     elif "negative" in result:
@@ -49,12 +57,12 @@ Sentiment:
 
 def build_visual_prompt(scene_text: str) -> str:
     return f"""
-You are a helpful assistant that analyzes movie scenes and identifies visually important elements for creating a storyboard.
+You are a storyboard expert that identifies visually important elements for creating a storyboard.
 
 Given a scene description (including narration or dialogue), extract the key visual elements that should be illustrated in a storyboard.
-Focus only on physical settings, actions, emotions, lighting, characters’ appearance, or anything visual.
-
-Do not include abstract ideas. Return only a comma-separated list of key visual elements.
+Focus ONLY on physical settings, actions, emotions, lighting, characters’ appearance, or anything visual.
+Do not include abstract ideas. 
+Return only a comma-separated list of key visual elements.
 
 Scene:
 \"\"\"{scene_text}\"\"\"
@@ -62,36 +70,38 @@ Scene:
 Visual Elements:
 """
 
-def extract_visual_keywords_with_gemma(scene_text: str, top_n: int = 5) -> list:
+def extract_visual_keywords_with_gemma(scene_text: str, top_n: int = 5, model: str = DEFAULT_MODEL) -> list:
     prompt = build_visual_prompt(scene_text)
-    result = ollama_generate(prompt)
+    result = ollama_generate(prompt, model)
     keywords = [kw.strip() for kw in result.split(",") if kw.strip()]
+    logger.debug(f"extract visual kw result received: {keywords[:top_n]}")
     return keywords[:top_n]
 
-def group_visual_units(text: str) -> list:
+def group_visual_units(text: str, model: str = DEFAULT_MODEL) -> list:
     prompt = f"""
-You are a helpful assistant that splits a script or story into distinct visual units.
+You are a storyboard expert helping to split a story or script into the FEWEST possible distinct visual units.
 
-Each visual unit should describe one moment that can be illustrated as a single storyboard frame.
-
-Only return a numbered list of the visual moments, without explanation.
+Only include moments where a significant change happens in setting, action, or visual composition.
+If multiple sentences describe the same visual moment, merge them into one unit.
+Avoid over-splitting. 
+Return ONLY a numbered list of the important visual moments without extra explanation.
 
 Text:
 \"\"\"{text}\"\"\"
 
 Visual Units:
 """
-    response = ollama_generate(prompt)
-
+    response = ollama_generate(prompt, model)
     units = []
     for line in response.split("\n"):
         if line.strip().startswith(tuple(str(i) + '.' for i in range(1, 100))):
             parts = line.split('.', 1)
             if len(parts) == 2:
                 units.append(parts[1].strip())
+    logger.debug(f"summarize result received: {units}")
     return units
 
-def generate_image_from_prompt(prompt: str) -> bytes:
+def generate_image_from_prompt(prompt: str) -> str:
     try:
         payload = {"inputs": prompt}
         response = requests.post(GENERATE_IMAGE_API, headers=HEADERS, json=payload, stream=True)
@@ -99,9 +109,10 @@ def generate_image_from_prompt(prompt: str) -> bytes:
 
         content_type = response.headers.get('content-type', '')
         if 'image' in content_type or 'octet-stream' in content_type:
-            return response.content
+            image_base64 = base64.b64encode(response.content).decode('utf-8')
+            return f"data:image/png;base64,{image_base64}"
         else:
-            return f"Error: Unexpected content type: {content_type}".encode()
+            return None
 
     except Exception as e:
-        return f"Error in image generation: {str(e)}".encode()
+        return None
