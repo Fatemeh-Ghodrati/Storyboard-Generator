@@ -8,33 +8,43 @@ nltk.download('punkt')
 logger = logging.getLogger('storyboard')
 
 HEADERS = {
-    "Authorization": "Bearer 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"
+    "Authorization": "Bearer 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",
+    "Content-Type": "application/json"
 }
+
 GENERATE_IMAGE_API = "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev"
-OLLAMA_URL = "http://localhost:11434/api/generate"
+TEXT_GENERATION_API = "https://router.huggingface.co/v1/chat/completions"
 
-DEFAULT_MODEL = "mistral:7b-instruct-q4_0" 
+IMAGE_REQUEST_COUNT = 0
+MAX_IMAGE_REQUESTS = 5
 
-def ollama_generate(prompt: str, model: str = DEFAULT_MODEL) -> str:
+
+def generate_text(prompt: str) -> str:
     try:
-        response = requests.post(OLLAMA_URL, json={
-            "model": model,
-            "prompt": prompt,
-            "stream": False
-        })
+        payload = {
+            "model": "mistralai/Mistral-7B-Instruct-v0.2:featherless-ai",
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.7,
+            "max_new_tokens": 300
+        }
+        response = requests.post(TEXT_GENERATION_API, headers=HEADERS, json=payload)
         response.raise_for_status()
         data = response.json()
-        return data.get("response", "").strip()
+
+        return data["choices"][0]["message"]["content"].strip()
     except Exception as e:
+        logger.error(f"Error generating text: {e}")
         return f"Error: {str(e)}"
 
-def summarize_text(text: str, min_length: int = 50, model: str = DEFAULT_MODEL) -> str:
+
+def summarize_text(text: str, min_length: int = 50) -> str:
     prompt = f"Summarize the following scene in at least {min_length} words:\n\n{text}\n\nSummary:"
-    result = ollama_generate(prompt, model)
+    result = generate_text(prompt)
     logger.debug(f"summarize result received: {result}")
     return result
 
-def analyze_sentiment(text: str, model: str = DEFAULT_MODEL) -> dict:
+
+def analyze_sentiment(text: str) -> dict:
     prompt = f"""
 Classify the sentiment of the following sentence as Positive, Negative, or Neutral.
 Only return the label name.
@@ -44,7 +54,7 @@ Sentence:
 
 Sentiment:
 """
-    result = ollama_generate(prompt, model).lower()
+    result = generate_text(prompt).lower()
     logger.debug(f"analyze result received: {result}")
     if "positive" in result:
         return {"label": "POSITIVE", "score": 0.9}
@@ -54,6 +64,7 @@ Sentiment:
         return {"label": "NEUTRAL", "score": 0.6}
     else:
         return {"label": "UNKNOWN", "score": 0.0}
+
 
 def build_visual_prompt(scene_text: str) -> str:
     return f"""
@@ -65,19 +76,21 @@ Do not include abstract ideas.
 Return only a comma-separated list of key visual elements.
 
 Scene:
-\"\"\"{scene_text}\"\"\"
+\"\"\"{scene_text}\"\"\" 
 
 Visual Elements:
 """
 
-def extract_visual_keywords_with_gemma(scene_text: str, top_n: int = 5, model: str = DEFAULT_MODEL) -> list:
+
+def extract_visual_keywords(scene_text: str, top_n: int = 5) -> list:
     prompt = build_visual_prompt(scene_text)
-    result = ollama_generate(prompt, model)
+    result = generate_text(prompt)
     keywords = [kw.strip() for kw in result.split(",") if kw.strip()]
     logger.debug(f"extract visual kw result received: {keywords[:top_n]}")
     return keywords[:top_n]
 
-def group_visual_units(text: str, model: str = DEFAULT_MODEL) -> list:
+
+def group_visual_units(text: str) -> list:
     prompt = f"""
 You are a storyboard expert helping to split a story or script into the FEWEST possible distinct visual units.
 
@@ -87,11 +100,11 @@ Avoid over-splitting.
 Return ONLY a numbered list of the important visual moments without extra explanation.
 
 Text:
-\"\"\"{text}\"\"\"
+\"\"\"{text}\"\"\" 
 
 Visual Units:
 """
-    response = ollama_generate(prompt, model)
+    response = generate_text(prompt)
     units = []
     for line in response.split("\n"):
         if line.strip().startswith(tuple(str(i) + '.' for i in range(1, 100))):
@@ -101,11 +114,20 @@ Visual Units:
     logger.debug(f"summarize result received: {units}")
     return units
 
+
 def generate_image_from_prompt(prompt: str) -> str:
+    global IMAGE_REQUEST_COUNT
+
+    if IMAGE_REQUEST_COUNT >= MAX_IMAGE_REQUESTS:
+        logger.warning("Image generation limit reached (max 5). No more requests will be sent.")
+        return None
+
     try:
         payload = {"inputs": prompt}
         response = requests.post(GENERATE_IMAGE_API, headers=HEADERS, json=payload)
         response.raise_for_status()
+
+        IMAGE_REQUEST_COUNT += 1 
 
         content_type = response.headers.get('content-type', '').lower()
 

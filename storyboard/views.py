@@ -3,7 +3,7 @@ from .forms import ScriptInputForm
 from .utils import (
     summarize_text,
     group_visual_units,
-    extract_visual_keywords_with_gemma,
+    extract_visual_keywords,
     generate_image_from_prompt,
     analyze_sentiment
 )
@@ -22,7 +22,7 @@ def index(request):
             visual_units = group_visual_units(summarized)
 
             for unit in visual_units:
-                keywords = extract_visual_keywords_with_gemma(unit)
+                keywords = extract_visual_keywords(unit)
                 sentiment = analyze_sentiment(unit)
                 prompt = f"cinematic storyboard scene: {unit} with keywords {', '.join(keywords)}"
                 image_url = generate_image_from_prompt(prompt)

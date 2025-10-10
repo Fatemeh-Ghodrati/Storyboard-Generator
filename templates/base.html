@@ -81,7 +81,7 @@
         <ul>
           {% for item in recent_histories %}
             <li>
-              <a href="{% url 'history:detail' item.id %}">
+              <a href="{% url 'history:history_detail' item.id %}">
                 {{ item.title }}
               </a>
             </li>

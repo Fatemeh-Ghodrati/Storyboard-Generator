@@ -269,3 +269,323 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 django.db.utils.OperationalError: no such table: history_storyboardhistory
 "POST / HTTP/1.1" 500 176886
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2758
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2607
+summarize result received: In the scene, we see a girl with blonde hair happily running through a bright garden full of flowers, butterflies, and singing birds. The warmth of the sun adds to her joy as she laughs and enjoys the beauty around her.
+summarize result received: ['A girl with blonde hair runs through a garden full of flowers, butterflies, and singing birds.', 'She is surrounded by bright colors and greenery, indicating a sunny day.', 'The warm sun shines down on her from above, emphasizing the joy in her expression as she laughs.']
+extract visual kw result received: ['girl with blonde hair', 'garden', 'flowers', 'butterflies', 'singing birds']
+analyze result received: positive
+Error in image generation: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev
+extract visual kw result received: ['1. Bright colors\n2. Greenery\n3. Sunny day']
+analyze result received: positive
+Error in image generation: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev
+extract visual kw result received: ['1. Warm sun shining\n2. Joy in her expression\n3. Laughter']
+analyze result received: positive
+Error in image generation: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev
+"POST / HTTP/1.1" 200 4757
+D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2758
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2607
+summarize result received: In the scene, a happy girl with blonde hair is running and laughing in a lively garden surrounded by bright flowers, fluttering butterflies, and singing birds. The warm sun enhances her joy as she enjoys the beauty of nature.
+summarize result received: ['Girl running and laughing in a lively garden with bright flowers and singing birds.', 'Fluttering butterflies fly around the garden.']
+extract visual kw result received: ['girl', 'running', 'laughter', 'garden', 'flowers']
+analyze result received: positive
+Error in image generation: 504 Server Error: Gateway Time-out for url: https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev
+extract visual kw result received: ['butterflies', 'garden']
+analyze result received: positive
+Error in image generation: 504 Server Error: Gateway Time-out for url: https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev
+"POST / HTTP/1.1" 200 4089
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2758
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2607
+summarize result received: A happy blonde girl runs through a bright garden, surrounded by flowers, butterflies, and singing birds, while she laughs and enjoys the sunshine on her face.
+summarize result received: ['Happy blonde girl running in a bright garden', 'Surrounded by flowers, butterflies, and singing birds', 'Laughing and enjoying the sunshine on her face']
+extract visual kw result received: ['1. Blonde girl\n2. Running\n3. Garden\n4. Brightness']
+analyze result received: positive
+Error in image generation: 504 Server Error: Gateway Time-out for url: https://router.huggingface.co/hf-inference/models/stabilityai/stable-diffusion-xl-base-1.0
+extract visual kw result received: ['surrounded by flowers', 'butterflies', 'and singing birds']
+analyze result received: positive
+Watching for file changes with StatReloader
+summarize result received: The scene depicts a girl happily running through a bright garden full of blooming flowers, butterflies, and singing birds. The sun shines on her face, causing her to laugh with joy.
+"GET / HTTP/1.1" 200 2758
+summarize result received: ['Girl running through a garden full of blooming flowers, butterflies, and singing birds.', 'Sun shining on her face, causing her to laugh with joy.']
+extract visual kw result received: ['girl', 'garden', 'flowers', 'butterflies', 'singing birds']
+analyze result received: positive
+Image received as raw content
+extract visual kw result received: ["- Sun shining down on the character's face\n- Character laughing with joy"]
+analyze result received: positive
+summarize result received: In the scene, we see a happy girl with blonde hair playing in a vivid garden full of blooming flowers, fluttering butterflies, and singing birds. She is delighted by the warmth of the sun on her face as she runs and laughs freely.
+Image received as raw content
+- Broken pipe from ('127.0.0.1', 57368)
+summarize result received: ['A happy girl with blonde hair playing in a vibrant garden full of blooming flowers, fluttering butterflies, and singing birds. She is enjoying the warmth of the sun on her face as she runs and laughs freely.']
+extract visual kw result received: ['Girl', 'blonde hair', 'garden', 'flowers', 'butterflies']
+analyze result received: positive
+Error in image generation: 504 Server Error: Gateway Time-out for url: https://router.huggingface.co/hf-inference/models/stabilityai/stable-diffusion-xl-base-1.0
+"POST / HTTP/1.1" 200 3726
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2758
+summarize result received: In the scene, a girl with blonde hair is happily running through a bright garden full of flowers, butterflies, and singing birds. The sun warms her face as she laughs, enjoying the beauty and joy of nature surrounding her.
+summarize result received: ['A girl with blonde hair is running through a bright garden.', 'She runs past a flower garden filled with colorful flowers.', 'Butterflies fly around her as she runs.', 'Birds sing in the background while she runs.', 'The sun warms her face as she laughs and enjoys the beauty of nature surrounding her.']
+extract visual kw result received: ['"girl with blonde hair', 'bright garden"']
+analyze result received: positive
+Image received as raw content
+extract visual kw result received: ['Flower garden', 'running']
+analyze result received: positive
+Image received as raw content
+extract visual kw result received: ['* Butterflies\n* Running woman']
+analyze result received: positive
+Image received as raw content
+extract visual kw result received: ['background', 'birds singing', 'running']
+analyze result received: positive
+Error in image generation: 504 Server Error: Gateway Time-out for url: https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev
+extract visual kw result received: ['sun', 'warmth', 'face', 'laughter', 'beauty']
+analyze result received: positive
+Error in image generation: 502 Server Error: Bad Gateway for url: https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev
+"POST / HTTP/1.1" 200 537753
+Watching for file changes with StatReloader
+D:\RPG_8\Dars\Project\Code\storyboard\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2758
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2607
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2758
+Error generating text: 404 Client Error: Not Found for url: https://router.huggingface.co/hf-inference/models/mistralai/Mistral-7B-Instruct-v0.2:featherless-ai
+summarize result received: Error: 404 Client Error: Not Found for url: https://router.huggingface.co/hf-inference/models/mistralai/Mistral-7B-Instruct-v0.2:featherless-ai
+Error generating text: 404 Client Error: Not Found for url: https://router.huggingface.co/hf-inference/models/mistralai/Mistral-7B-Instruct-v0.2:featherless-ai
+summarize result received: []
+"POST / HTTP/1.1" 200 3352
+"GET / HTTP/1.1" 200 2758
+- Broken pipe from ('127.0.0.1', 60061)
+D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
+Watching for file changes with StatReloader
+D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2758
+Error generating text: 404 Client Error: Not Found for url: https://router.huggingface.co/hf-inference/models/mistralai/Mistral-7B-Instruct-v0.2
+summarize result received: Error: 404 Client Error: Not Found for url: https://router.huggingface.co/hf-inference/models/mistralai/Mistral-7B-Instruct-v0.2
+Error generating text: 404 Client Error: Not Found for url: https://router.huggingface.co/hf-inference/models/mistralai/Mistral-7B-Instruct-v0.2
+summarize result received: []
+"POST / HTTP/1.1" 200 3352
+D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2758
+Error generating text: 404 Client Error: Not Found for url: https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2
+summarize result received: Error: 404 Client Error: Not Found for url: https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2
+Error generating text: 404 Client Error: Not Found for url: https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2
+summarize result received: []
+"POST / HTTP/1.1" 200 3352
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2758
+summarize result received: Amidst a tranquil rainstorm, Lila strolled through the city, drawn to a quaint bookstore. Inside, she was greeted by the comforting scents of paper and coffee. Delving into the novels, Lila stumbled upon an intriguing old book. The arrival of a kind-faced stranger disrupted the stillness, leaving them momentarily speechless. Outside, raindrops danced on the pavement, creating a serene atmosphere.
+summarize result received: ['Lila walking in the rain-soaked city towards a quaint bookstore', 'Lila entering the bookstore, surrounded by comforting scents of paper and coffee', 'Lila browsing through novels in the bookstore', 'Lila discovering an intriguing old book', 'Arrival of a kind-faced stranger, disrupting the stillness', 'Lila and the stranger momentarily speechless', 'Raindrops dancing on the pavement outside the bookstore.']
+extract visual kw result received: ['Lila', 'rain-soaked city', 'umbrella (optional)', 'quaint bookstore', 'puddles']
+analyze result received: the given sentence has a positive sentiment. the description of lila walking towards a quaint bookstore in a rain-soaked city creates an imagery that is often associated with a peaceful, cozy, and romantic atmosphere.
+Image received as raw content
+extract visual kw result received: ['* Lila entering bookstore\n* Comforting scents of paper and coffee\n* Interior of bookstore (shelves filled with books', "warm lighting)\n* Lila's expression as she takes in the surroundings."]
+analyze result received: positive
+Image received as raw content
+extract visual kw result received: ['* Lila (appearance: dressed', 'standing', 'looking at books)\n* Bookstore interior (shelves filled with books', 'warm lighting', 'customers browsing)\n* Books (variety of titles']
+analyze result received: neutral
+Image received as raw content
+extract visual kw result received: ["* Lila's expression (curiosity", 'excitement)\n* Old book (cover design', 'thickness', "age signs)\n* Book's opening pages (content", 'illustrations']
+analyze result received: positive. the sentence suggests curiosity and exploration, which are generally positive emotions.
+Image received as raw content
+extract visual kw result received: ['kind-faced stranger', 'arrival', 'disrupting', 'stillness.']
+analyze result received: neutral. the sentence does not express a clear positive or negative emotion. it simply describes an event.
+Image received as raw content
+extract visual kw result received: ['Lila', 'Stranger', 'Expression (speechless)', 'Proximity (momentarily close)']
+analyze result received: neutral
+Image received as raw content
+Error generating text: 402 Client Error: Payment Required for url: https://router.huggingface.co/v1/chat/completions
+extract visual kw result received: ['Error: 402 Client Error: Payment Required for url: https://router.huggingface.co/v1/chat/completions']
+Error generating text: 402 Client Error: Payment Required for url: https://router.huggingface.co/v1/chat/completions
+analyze result received: error: 402 client error: payment required for url: https://router.huggingface.co/v1/chat/completions
+Error in image generation: 402 Client Error: Payment Required for url: https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev
+"POST / HTTP/1.1" 200 969981
+Error generating text: 402 Client Error: Payment Required for url: https://router.huggingface.co/v1/chat/completions
+summarize result received: Error: 402 Client Error: Payment Required for url: https://router.huggingface.co/v1/chat/completions
+Error generating text: 402 Client Error: Payment Required for url: https://router.huggingface.co/v1/chat/completions
+summarize result received: []
+"POST / HTTP/1.1" 200 2782
+"GET / HTTP/1.1" 200 2758
+- Broken pipe from ('127.0.0.1', 64357)
+"GET / HTTP/1.1" 200 2758
+D:\RPG_8\Dars\Project\Code\history\context_processors.py changed, reloading.
+Watching for file changes with StatReloader
+D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
+Watching for file changes with StatReloader
+D:\RPG_8\Dars\Project\Code\storyboard\utils.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\Program Files\Python312\Lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'history'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Program Files\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\RPG_8\Dars\Project\Code\storyboard\views.py", line 42, in index
+    return render(request, 'storyboard/index.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'history' is not a registered namespace
+"GET / HTTP/1.1" 500 155161
+D:\RPG_8\Dars\Project\Code\project\urls.py changed, reloading.
+Watching for file changes with StatReloader
+D:\RPG_8\Dars\Project\Code\history\urls.py changed, reloading.
+Watching for file changes with StatReloader
+D:\RPG_8\Dars\Project\Code\project\urls.py changed, reloading.
+Watching for file changes with StatReloader
+D:\RPG_8\Dars\Project\Code\project\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\Program Files\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\RPG_8\Dars\Project\Code\storyboard\views.py", line 42, in index
+    return render(request, 'storyboard/index.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python312\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail' not found. 'detail' is not a valid view function or pattern name.
+"GET / HTTP/1.1" 500 154052
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 3694
+"GET /history/6/ HTTP/1.1" 200 969454
+"GET / HTTP/1.1" 200 3694
+Error generating text: HTTPSConnectionPool(host='router.huggingface.co', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000028A011E7830>: Failed to resolve 'router.huggingface.co' ([Errno 11001] getaddrinfo failed)"))
+summarize result received: Error: HTTPSConnectionPool(host='router.huggingface.co', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000028A011E7830>: Failed to resolve 'router.huggingface.co' ([Errno 11001] getaddrinfo failed)"))
+Error generating text: HTTPSConnectionPool(host='router.huggingface.co', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000028A7FF1F950>: Failed to resolve 'router.huggingface.co' ([Errno 11001] getaddrinfo failed)"))
+summarize result received: []
+"POST / HTTP/1.1" 200 4220
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 3694
+summarize result received: Michael and Frank enjoy a leisurely day at the lake, sitting on the dock and contemplating various activities such as walking, exploring, or fishing. Michael's dog Frank, with his nose alert, relaxes beside him. The peaceful atmosphere and possibilities for adventure make it a day worth cherishing, perfect for friends.
+summarize result received: ["Michael and Frank sitting on the dock, discussing activities with relaxed expressions and Frank's alert nose.", 'Serene lake scene with sun reflecting off the water, Michael and Frank contemplating their options.', 'Michael and Frank looking out at the lake, considering various adventures such as walking, exploring, or fishing.']
+extract visual kw result received: ['Dock', 'Michael (relaxed expression', 'seated position)', 'Frank (relaxed expression', 'alert nose']
+analyze result received: positive
+Image received as raw content
+extract visual kw result received: ['Serene lake', 'Sun reflection on water', 'Michael (appearance unspecified)', 'Frank (appearance unspecified)', 'Contemplating (body language: deep in thought']
+analyze result received: positive.
+Image received as raw content
+extract visual kw result received: ['Michael and Frank', 'two adults', 'seated on chairs or standing', 'looking out at a serene lake', 'reflection of sky and trees on water']
+analyze result received: positive.
+Image received as raw content
+"POST / HTTP/1.1" 200 466879
+"GET /history/4/ HTTP/1.1" 200 4122
+"GET /history/3/ HTTP/1.1" 200 363612
+"GET /history/1/ HTTP/1.1" 200 4889
+"GET /history/2/ HTTP/1.1" 200 4353
+"GET /history/3/ HTTP/1.1" 200 363612
+"GET /history/4/ HTTP/1.1" 200 4122
+"GET /history/4/ HTTP/1.1" 200 4122
+"GET /history/6/ HTTP/1.1" 200 969623
