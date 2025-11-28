@@ -1,12 +1,12 @@
-**Storyboard Generator**
+****Storyboard Generator****
 
 A tool designed to generate and organize storyboards efficiently. This project helps users create structured visual story sequences, making it useful for writers, designers, filmmakers, and anyone who needs to plan visual narratives.
 
-**Overview**
+****Overview****
 
 Storyboard Generator allows you to create, edit, and manage storyboard frames in a simple and organized way. It provides a clean structure that can be extended or customized depending on your workflow.
 
-**Features**
+****Features****
 
 Create and organize storyboard frames
 
@@ -16,7 +16,7 @@ Simple and flexible project architecture
 
 Easy to extend and modify
 
-**Requirements**
+****Requirements****
 
 Python 3.x
 
@@ -26,7 +26,7 @@ Install them using:
 
 `pip install -r requirements.txt`
 
-**Installation**
+****Installation****
 
 ```
 git clone https://github.com/Fatemeh-Ghodrati/Storyboard-Generator.git
@@ -46,7 +46,7 @@ Install dependencies:
 
 `pip install -r requirements.txt`
 
-**Usage**
+****Usage****
 
 `python main.py`
 
