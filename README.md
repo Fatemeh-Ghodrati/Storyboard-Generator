@@ -24,26 +24,31 @@ Required dependencies listed in requirements.txt
 
 Install them using:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 **Installation**
+
+```
 git clone https://github.com/Fatemeh-Ghodrati/Storyboard-Generator.git
 cd Storyboard-Generator
+```
 
 
 (Optional virtual environment)
-
+```
 python -m venv venv
 source venv/bin/activate   # Mac/Linux
 venv\Scripts\activate      # Windows
+```
 
 
 Install dependencies:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 **Usage**
-python main.py
+
+`python main.py`
 
 
 (If your project uses a different entry point, replace main.py accordingly.)
